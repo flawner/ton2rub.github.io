@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер TON to RUB</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="currency">
+        <h1 id="mainText" class="title">TON to RUB</h1>
+        <h1 id="blurText" class="title-blur">TON to RUB</h1>
+        <button id="swapButton" class="swap-btn">RUB to TON</button>
+        <h1 id="blurButton" class="btn-blur">RUB to TON</h1>
+    </div>
+    <div class="convert-window">
+        <div class="base-convert-window">
+            <div class="input-wrapper">
+                <h1 id="inputCurrency" class="input-currency">TON</h1>
+                <h1 id="inputCurrencyBlur" class="input-currency-blur">TON</h1>
+                <input type="text" class="input-value">
+            </div>
+            <img class="arrow" src="img/arrow.png" alt="arrow">
+            <div class="output-wrapper">
+                <div class="output-window">
+                    <input type="text" class="result-value" readonly>
+                    <h1 id="outputCurrency" class="output-currency">RUB</h1>
+                    <h1 id="outputCurrencyBlur" class="output-currency-blur">RUB</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info-container">
+        <div class="info-btn">
+            <button class="info-btn-main"></button>
+        </div>
+        <div class="info-window">
+            <div class="info-content">
+                <h1 class="window-title" data-ru="Сайт с самый точным курсом перевода TON в RUB" data-en="Website with the most accurate TON to RUB exchange rate">
+                    Сайт с самый точным курсом перевода TON в RUB
+                </h1>
+                <h1 class="window-ton-main" data-ru="Toncoin (TON) — это криптовалюта блокчейн-платформы The Open Network." data-en="Toncoin (TON) is the cryptocurrency of The Open Network blockchain platform.">
+                    Toncoin (TON) — это криптовалюта блокчейн-платформы The Open Network.
+                </h1>
+                <ul class="window-ton-description">
+                    <li data-ru="Создана для быстрых и дешёвых транзакций." data-en="Created for fast and cheap transactions.">Создана для быстрых и дешёвых транзакций.</li>
+                    <li data-ru="Используется для комиссий в сети, стейкинга (и заработка), платежей и расчётов в приложениях." data-en="Used for network fees, staking (and earning), payments and settlements in applications.">Используется для комиссий в сети, стейкинга (и заработка), платежей и расчётов в приложениях.</li>
+                    <li data-ru="Особенность: технология позволяет обрабатывать миллионы операций в секунду." data-en="Feature: technology allows processing millions of operations per second.">Особенность: технология позволяет обрабатывать миллионы операций в секунду.</li>
+                </ul>
+                <h1 class="window-rub" data-ru="RUB — российский рубль, традиционная (фиатная) валюта, эмитируемая Центральным банком России." data-en="RUB is the Russian ruble, a traditional (fiat) currency issued by the Central Bank of Russia.">
+                    RUB — российский рубль, традиционная (фиатная) валюта, эмитируемая Центральным банком России.
+                </h1>
+                <button class="switch-language" onclick="toggleLanguage()">ENG</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="switch-anims">
+        <h1 class="anims-text" data-ru="анимации" data-en="anims">anims</h1>
+        <label class="switch">
+            <input type="checkbox" checked="checked">
+            <span class="move"></span>
+        </label>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

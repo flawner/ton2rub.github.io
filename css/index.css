@@ -1,0 +1,1104 @@
+:root {
+  --animations-enabled: 1;
+  --transition-duration: 0.3s;
+  --transition-timing: ease;
+}
+
+.no-animations {
+  --animations-enabled: 0;
+  --transition-duration: 0s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* вместо min-height */
+    overflow: hidden; /* убирает скролл */
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; УБИРАЕМ ЭТУ СТРОЧКУ */
+}
+
+.currency {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 150px;
+    padding: 50px;
+    position: relative;
+}
+
+.title {
+    font-family: 'Nunito';
+    font-size: 80px;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        142.5deg,
+        #58B7FF 0%,           /* TON */
+        #58B7FF 40%,          /* TON продолжается */
+        #3D8BC9 45%,          /* Начало перехода */
+        #012448 58%,          /* Конец перехода */
+        #012448 60%,          /* RUB начинается */
+        #012448 100%          /* RUB */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+.title-blur {
+    position: absolute; 
+    top: 38.4%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-family: 'Nunito';
+    font-size: 80px;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        142.5deg,
+        #58B7FF 0%,           /* TON */
+        #58B7FF 40%,          /* TON продолжается */
+        #3D8BC9 45%,          /* Начало перехода */
+        #012448 58%,          /* Конец перехода */
+        #012448 60%,          /* RUB начинается */
+        #012448 100%          /* RUB */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: left;
+    z-index: 1; /* Позади основного текста */
+    filter: blur(6px);
+    
+    
+    white-space: nowrap; /* Чтобы текст не переносился */
+}
+
+
+.swap-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito';
+    font-size: 40px;
+    font-weight: 900;
+    cursor: pointer;
+    position: relative;
+    background: linear-gradient(
+        142.5deg,
+        #58B7FF 0%,           /* TON */
+        #58B7FF 40%,          /* TON продолжается */
+        #3D8BC9 45%,          /* Начало перехода */
+        #012448 58%,          /* Конец перехода */
+        #012448 60%,          /* RUB начинается */
+        #012448 100%          /* RUB */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    z-index: 2;
+
+    /* text-shadow: 0 0 16px rgba(87, 182, 255, 0.5),
+               0 0 16px rgba(87, 182, 255, 0.3),
+               0 0 16px rgba(0, 36, 72, 0.2); */
+}
+
+.swap-btn::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #58B7FF, #002448);
+    text-shadow: 0 0 15px #fff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+.swap-btn:hover::before {
+    width: 55%;
+
+}
+
+
+.swap-btn:hover {
+   color: #272928;
+}
+
+.btn-blur {
+    position: absolute; 
+    top: 67.2%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-family: 'Nunito';
+    font-weight: 900;
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+        142.5deg,
+        #58B7FF 0%,           /* TON */
+        #58B7FF 40%,          /* TON продолжается */
+        #3D8BC9 45%,          /* Начало перехода */
+        #012448 58%,          /* Конец перехода */
+        #012448 60%,          /* RUB начинается */
+        #012448 100%          /* RUB */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    line-height: 100%;
+    letter-spacing: 0;
+    text-align: left;
+    z-index: 1; /* Позади основного текста */
+    filter: blur(5px);
+    
+    
+    white-space: nowrap; /* Чтобы текст не переносился */
+}
+
+
+
+.base-convert-window {
+    width: 470px;
+    height: 470px;
+    box-sizing: border-box;
+    border-radius: 59px;
+    position: absolute;
+    top: 59%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    
+    /* Новый стиль карточки */
+    --border-width: 2px;
+    --surface-3: 210deg 100% 67%;
+    --border-1: rgba(152, 249, 255, 0.8);
+    --border-2: rgba(234, 191, 255, 0.9);
+    
+    /* Основной фон с ЧЕРНЫМ шумом */
+    background: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' fill='black' opacity='0.1'/%3E%3C/svg%3E"),
+        hsl(from var(--surface-3) h s l / 0.15);
+    
+    backdrop-filter: blur(150px);
+    -webkit-backdrop-filter: blur(150px);
+    border: none;
+}
+
+.base-convert-window::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    border: var(--border-width) solid transparent;
+    background: linear-gradient(135deg, var(--border-1), var(--border-2)) border-box;
+    mask: 
+        linear-gradient(black, black) border-box,
+        linear-gradient(black, black) padding-box;
+    mask-composite: subtract;
+}
+
+/* Дополнительный псевдоэлемент для ЧЕРНОГО шума поверх всего окна */
+.base-convert-window::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' fill='black' opacity='0.1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+}
+
+/* Сохраняем тени */
+.base-convert-window {
+    box-shadow: 
+        0 8px 32px rgba(0, 36, 72, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3),
+        inset 0 -1px 1px rgba(0, 36, 72, 0.2);
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Стили кнопки */
+.info-btn-main {
+    width: 80px;
+    height: 80px;
+    background-image: url('../img/infobtn.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 49%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1001;
+}
+
+.info-btn-main:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Стили окна - УБИРАЕМ scale из трансформации */
+.info-window {
+    width: 392px;
+    height: 483px;
+    box-sizing: border-box;
+    border-radius: 59px;
+    position: absolute;
+    top: 65%;
+    left: 22%;
+    transform: translate(-50%, -50%); /* УБРАЛИ scale отсюда */
+    z-index: 2;
+    
+    /* Ваши существующие стили */
+    --border-width: 2px;
+    --surface-3: 210deg 100% 67%;
+    --border-1: rgba(152, 249, 255, 0.8);
+    --border-2: rgba(234, 191, 255, 0.9);
+    
+    background: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' fill='black' opacity='0.1'/%3E%3C/svg%3E"),
+        hsl(from var(--surface-3) h s l / 0.15);
+    
+    backdrop-filter: blur(300px);
+    -webkit-backdrop-filter: blur(300px);
+    border: none;
+    
+    /* Обводка и тени */
+    box-shadow: 
+        0 20px 50px rgba(0, 36, 72, 0.45),
+        inset 0 3px 8px rgba(255, 255, 255, 0.35),
+        inset 0 -3px 8px rgba(0, 36, 72, 0.25);
+    
+    /* Анимационные свойства */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.8s cubic-bezier(0.12, 0, 0.39, 0);
+}
+
+/* Псевдоэлементы */
+.info-window::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    border: var(--border-width) solid transparent;
+    background: linear-gradient(100deg, var(--border-1), var(--border-2)) border-box;
+    mask: 
+        linear-gradient(black, black) border-box,
+        linear-gradient(black, black) padding-box;
+    mask-composite: subtract;
+}
+
+.info-window::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter' color-interpolation-filters='sRGB'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' fill='black' opacity='0.1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+}
+
+/* Состояние при наведении на кнопку - только opacity и visibility */
+.info-btn-main:hover ~ .info-window {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: all 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Контент ВСЕГДА видимый и БЕЗ каких-либо изменений */
+.info-content {
+    opacity: 1 !important;
+    /* Убираем ВСЕ трансформации */
+    transform: none !important;
+    scale: 1 !important;
+    /* Убираем все transition */
+    transition: none !important;
+    /* Гарантируем, что размер не меняется */
+    width: 100%;
+    height: 100%;
+}
+
+
+.window-title {
+    font-family: 'Nunito';
+    font-weight: 900;
+    font-size: 22px;
+    color: #fff;
+    text-shadow: #fff 0 0 10px;
+    max-width: 400px;
+    margin-top: 25px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+.window-ton-main {
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: #fff 0 0 5px;
+    max-width: 288px;
+    margin-left: 34px;
+    line-height: 20px;
+    letter-spacing: 0%;
+}
+.window-ton-description {
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: #fff 0 0 5px;
+    max-width: 288px;
+    margin-left: 34px;
+    margin-top: -10px;
+    line-height: 20px;
+    letter-spacing: 0%;
+}
+
+.window-rub {
+    font-family: 'Nunito';
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: #fff 0 0 5px;
+    max-width: 288px;
+    margin-left: 34px;
+    margin-top: -10px;
+    line-height: 20px;
+    letter-spacing: 0%;
+}
+
+.switch-language {
+    width: 64px;
+    height: 34px;
+    border-radius: 17px;
+    background: linear-gradient(154.67deg, rgba(87, 183, 255, 1), rgba(2.78, 72.68, 144.57, 1) 100%);
+    border: none;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.188);
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Nunito';
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-shadow: #fff 0 0 16px;
+    position: fixed;
+    top: 85%;
+    left: 73%;
+    z-index: 10000; /* Высокий z-index чтобы была поверх всех элементов */
+    cursor: pointer;
+    
+    /* Плавные анимации для всех изменений */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* Сохраняем исходные значения для трансформации */
+    transform: scale(1);
+    filter: brightness(1);
+}
+
+/* Эффект при наведении */
+.switch-language:hover {
+    transform: scale(1.08); /* Увеличение на 8% */
+    filter: brightness(1.25); /* Увеличение яркости на 25% */
+    
+    /* Усиленная тень при наведении */
+    box-shadow: 
+        0 0 20px rgba(87, 183, 255, 0.4),
+        0 0 30px rgba(2.78, 72.68, 144.57, 0.2),
+        0 0 40px rgba(0, 0, 0, 0.2);
+    
+    /* Усиленный текст-шэдоу */
+    text-shadow: #fff 0 0 20px;
+}
+
+/* Эффект при нажатии */
+.switch-language:active {
+    transform: scale(1.05); /* Легкое уменьшение при клике */
+    filter: brightness(1.15);
+    transition: all 0.1s ease; /* Быстрая анимация при клике */
+}
+
+.window-title, .window-ton-main, .window-rub, .window-ton-description li {
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Исчезновение */
+.fade-out {
+    opacity: 0 !important;
+    transform: translateY(0px) !important;
+}
+
+/* Появление */
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+/* !!! Поле ввода !!! */
+
+.input-wrapper {
+    position: absolute;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 354px;
+    height: 80px;
+    border-radius: 40px;
+    background: linear-gradient(90deg, #2E4C6A, #70A0CD);
+    padding: 1.5px;
+    box-shadow: 0 0 16px #fff;
+}
+
+.input-value {
+    width: 100%;
+    height: 100%;
+    border-radius: 38px;
+    border: none;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(234, 248, 252, 1) 46%, rgba(192, 226, 244, 1) 100%);
+    padding: 0 30px;
+    box-sizing: border-box;
+    font-family: 'Nunito';
+    font-size: 35px;
+    font-weight: 500;
+    color: #002448;
+    text-shadow: 0 0 2px rgba(0, 36, 72, 0.5);
+}
+
+.input-value:focus {
+    outline: none;
+}
+
+.input-currency {
+    position: absolute;
+    top: 15%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    font-family: 'Nunito';
+    font-size: 50px;
+    --original-font-size: 50px;
+    --final-font-size: 30px;
+    font-weight: 400;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    
+    /* Правильное применение градиента к тексту */
+    background: linear-gradient(126.47deg, rgba(112.05, 181.14, 255, 1), rgba(0, 36, 72, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Важно: убираем цвет текста */
+}
+
+.input-currency-blur {
+    position: absolute;
+    top: 15%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    font-family: 'Nunito';
+    font-size: 50px;
+    --original-font-size: 50px;
+    --final-font-size: 30px;
+    font-weight: 400;
+    filter: blur(2px);
+    pointer-events: none;
+    transition: all 0.4s ease;
+    
+    /* Правильное применение градиента к тексту */
+    background: linear-gradient(126.47deg, rgba(112.05, 181.14, 255, 1), rgba(0, 36, 72, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Важно: убираем цвет текста */
+}
+/* !!! Поле вывода !!! */
+
+
+.output-wrapper {
+    position: absolute;
+    top: 76%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 354px;
+    height: 80px;
+    border-radius: 40px;
+    background: linear-gradient(90deg, #2E4C6A, #70A0CD);
+    padding: 1.5px;
+    box-shadow: 0 0 16px #fff;
+}
+
+.output-window {
+    width: 100%;
+    height: 100%;
+    border-radius: 38px;
+    border: none;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 1) 0%, rgba(234, 248, 252, 1) 46%, rgba(192, 226, 244, 1) 100%);
+    padding: 0 30px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible !important; /* Разрешаем переполнение */
+}
+
+.result-value {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-family: 'Nunito';
+    font-size: 35px;
+    font-weight: 500;
+    color: #002448;
+    text-shadow: 0 0 2px rgba(0, 36, 72, 0.5);
+    text-align: left;
+    padding: 0 10px 0 0; /* Добавляем отступ справа */
+    margin: 0;
+    outline: none;
+    cursor: text;
+    overflow-x: auto; /* Горизонтальная прокрутка */
+    white-space: nowrap; /* Запрет переноса строк */
+    direction: ltr; /* Направление слева направо */
+    position: static;
+    transform: none;
+    top: auto;
+    left: auto;
+    box-sizing: border-box;
+    /* Разрешаем выделение текста */
+    user-select: all;
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+}
+
+.result-value:focus {
+    outline: none;
+    /* При фокусе разрешаем выделение */
+    user-select: all;
+    -webkit-user-select: all;
+    -moz-user-select: all;
+    -ms-user-select: all;
+}
+
+/* Стилизация скроллбара */
+.result-value::-webkit-scrollbar {
+    height: 4px;
+}
+
+.result-value::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.result-value::-webkit-scrollbar-thumb {
+    background: rgba(0, 36, 72, 0.3);
+    border-radius: 2px;
+}
+
+.result-value::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 36, 72, 0.5);
+}
+
+.result-value.ton-format {
+    font-size: 32px; /* Немного меньше размер для длинных чисел */
+    letter-spacing: -0.5px;
+}
+
+.output-currency {
+    position: absolute;
+    top: 13%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    font-family: 'Nunito';
+    font-size: 50px;
+    --original-font-size: 50px;
+    --final-font-size: 30px;
+    font-weight: 400;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    
+    /* Правильное применение градиента к тексту */
+    background: linear-gradient(126.47deg, rgba(112.05, 181.14, 255, 1), rgba(0, 36, 72, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Важно: убираем цвет текста */
+}
+
+.output-currency-blur {
+    position: absolute;
+    top: 13%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    font-family: 'Nunito';
+    font-size: 50px;
+    --original-font-size: 50px;
+    --final-font-size: 30px;
+    font-weight: 400;
+    filter: blur(2px);
+    pointer-events: none;
+    transition: all 0.4s ease;
+    
+    /* Правильное применение градиента к тексту */
+    background: linear-gradient(126.47deg, rgba(112.05, 181.14, 255, 1), rgba(0, 36, 72, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Важно: убираем цвет текста */
+}
+
+.switch-anims{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 47%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+
+}
+
+.switch {
+  display: inline-block;
+  transform: translate(0%, 0%);
+  width: 70px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 1;
+  width: 0;
+  height: 0;
+}
+
+.move {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('../img/switchback.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border-radius: 59px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.move::before {
+  position: absolute;
+  content: '';
+  background-image: url('../img/switch.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 28px;
+  height: 28px;
+  border-radius: 59px;
+  box-shadow: 0 0 20px #000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  
+  transition: 0.5s;
+}
+
+/* input:checked + .move {
+  
+} */
+
+input:checked + .move::before {
+  transform: translateX(calc(70px - 28px));
+}
+
+.anims-text {
+  font-family: 'Nunito';
+  font-size: 25px;
+  color: #fff;
+  font-weight: 500;
+  text-shadow: 0 0 5px #fff;
+  display: inline-block;
+  margin-bottom: 5px;
+  padding: 0;
+}
+
+
+/* Адаптивные стили */
+
+
+@media (max-width: 1955px) {
+  .info-btn-main {
+    left: 34%;
+    
+  }
+
+  .switch-anims {
+    left: 66%;
+  }
+  
+
+  .info-window {
+    left: 20%;
+  }
+}
+
+
+@media (max-width: 1790px) {
+  .info-btn-main {
+    left: 30%;
+    
+  }
+
+  .info-window {
+    left: 13%;
+  }
+
+  .switch-anims {
+    left: 70%;
+  }
+}
+
+@media (max-width: 1620px) {
+  .info-btn-main {
+    left: 26%;
+    
+  }
+
+  .info-window {
+    top: 76%;
+    left: 15%;
+  }
+
+  .switch-anims {
+    left: 74%;
+  }
+}
+
+@media (max-width: 1305px) {
+  .info-btn-main {
+    left: 23%;
+    
+  }
+
+  .switch-anims {
+    left: 77%;
+  }
+
+  .info-window {
+    top: 47%;
+    left: 50%;
+  }
+}
+
+/* Ноутбуки и маленькие десктопы */
+@media (max-width: 1199px) {
+  .info-btn-main {
+    left: 20%;
+    
+  }
+
+  .switch-anims {
+    left: 80%;
+  }
+}
+
+/* Планшеты в альбомной ориентации */
+@media (max-width: 991px) {
+  .info-btn-main {
+    left: 13%;
+    
+  }
+
+  .switch-anims {
+    left: 87%;
+  }
+}
+
+/* Планшеты и большие телефоны */
+@media (max-width: 767px) {
+  .info-btn-main {
+    left: 10%;
+    
+  }
+
+  .switch-anims {
+    left: 90%;
+  }
+}
+
+@media (max-width: 715px) {
+  .info-btn-main {
+    top: 88%;
+    left: 35%;
+    background-image: url('../img/infobtnmobile.png');
+  }
+
+  .switch-anims {
+    top: 87%;
+    left: 65%;
+  }
+}
+
+
+
+@media (max-width: 575px) {
+  .title, .title-blur {
+    font-size: 70px;
+  }
+
+  .swap-btn, .btn-blur {
+    font-size: 30px;
+  }
+
+  .title-blur {
+    top: 40.5%;
+  }
+
+  .btn-blur {
+    top: 67%;
+  }
+  
+}
+
+@media (max-width: 520px) {
+.title, .title-blur {
+    font-size: 55px;
+  }
+
+  .swap-btn, .btn-blur {
+    font-size: 35px;
+  }
+  
+  .title-blur {
+    top: 38%;
+  }
+
+  .btn-blur {
+    top: 64%;
+  }
+  .base-convert-window {
+    top: 57%;
+    width: 400px;
+    height: 400px;
+  }
+
+  .input-wrapper {
+    width: 80%;
+    
+  }
+  .output-wrapper {
+    width: 80%;
+    
+  }
+  .arrow {
+    width: 70px;
+    height: 90px;
+  }
+
+}
+
+@media (max-width: 430px) {
+.title, .title-blur {
+    font-size: 45px;
+  }
+
+  .title-blur {
+    top: 41%;
+  }
+
+  .swap-btn, .btn-blur {
+    font-size: 25px;
+  }
+  
+  .btn-blur {
+    top: 63%;
+  }
+
+  .base-convert-window {
+    top: 57%;
+    width: 350px;
+    height: 350px;
+  }
+
+  .input-wrapper {
+    width: 80%;
+    height: 60px;
+    
+  }
+  .output-wrapper {
+    width: 80%;
+    height: 60px;
+    
+  }
+  .arrow {
+    width: 70px;
+    height: 90px;
+  }
+
+  .input-currency, .input-currency-blur, .output-currency, .output-currency-blur {
+    font-size: 35px;
+    --original-font-size: 35px;
+    --final-font-size: 20px;
+  }
+  .input-value, .result-value {
+    font-size: 28px;
+  }
+
+  .info-window {
+    width: 352px;
+    height: 443px;
+  }
+
+  .window-title {
+    margin-top: 35px;
+    font-size: 20px;
+  }
+
+  .window-ton-main, .window-ton-description, .window-rub {
+    font-size: 16px;
+  }
+
+  .switch-language {
+    top: 82.2%;
+  }
+  
+}
+
+@media (max-height: 820px){
+  .currency {
+    margin-top: 100px; 
+  }
+}
+
+@media (max-width: 380px) {
+  .currency {
+    margin-top: 85px; 
+  }
+  .info-btn-main {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .base-convert-window {
+    top: 57%;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .info-window {
+    width: 332px;
+    height: 423px;
+  }
+  
+  .window-title {
+    margin-top: 35px;
+    font-size: 19px;
+  }
+  
+  .window-ton-main, .window-ton-description, .window-rub {
+    font-size: 14px;
+  }
+  
+  .switch-language {
+    top: 80.2%;
+  }
+}
+
+
+
+.swap-btn::before {
+  transition: all calc(var(--transition-duration) * var(--animations-enabled)) var(--transition-timing);
+}
+
+.title-blur,
+.btn-blur,
+.input-currency,
+.input-currency-blur,
+.output-currency,
+.output-currency-blur,
+.switch-language,
+.info-btn-main,
+.info-window {
+  transition: all calc(var(--transition-duration) * var(--animations-enabled)) var(--transition-timing);
+}
+
+/* Для сложных анимаций с cubic-bezier */
+.swap-btn:hover ~ .info-window,
+.info-window {
+  transition: all calc(0.8s * var(--animations-enabled)) cubic-bezier(0.12, 0, 0.39, 0);
+}
+
+.info-btn-main:hover ~ .info-window {
+  transition: all calc(0.9s * var(--animations-enabled)) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.window-title, 
+.window-ton-main, 
+.window-rub, 
+.window-ton-description li {
+  transition: all calc(0.6s * var(--animations-enabled)) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.switch input + .move {
+  transition: 0.3s !important; /* Всегда анимируем переключатель */
+}
+
+.switch input:checked + .move::before {
+  transition: 0.5s !important; /* Всегда анимируем переключатель */
+}
+
+/* Гарантируем, что переключатель всегда будет работать плавно */
+.move::before {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
