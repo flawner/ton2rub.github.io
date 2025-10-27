@@ -1,2 +1,6 @@
-# ton2rub.github.io
-Simple converter Ton to Rub 
+# TON to RUB converter
+## Simple converter Ton to Rub 
+### Это простой конвертер TON в RUB и RUB в TON
+### 🫐 Минималистичный дизайн и удобный функционал 🫐
+### 🫐 Курс TON берется напрямую с биржи Bybit, а курс доллара напрямую с ExchangeRate 🫐
+### 🫐 Курс всегда актуальный и обновляется раз в 30 секунд 🫐
