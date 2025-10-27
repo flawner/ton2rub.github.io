@@ -1021,6 +1021,94 @@ input:checked + .move::before {
   }
 }
 
+
+@media (max-height: 720px){
+  .currency {
+    margin-top: 90px; 
+  }
+
+  .base-convert-window {
+    top: 57%;
+    width: 320px;
+    height: 300px;
+  }
+
+}
+
+@media (max-height: 645px){
+  .currency {
+    margin-top: 50px; 
+  }
+
+  .base-convert-window {
+    top: 57%;
+    width: 320px;
+    height: 260px;
+  }
+
+  .input-currency, .input-currency-blur, .output-currency, .output-currency-blur {
+    font-size: 35px;
+    --original-font-size: 35px;
+    --final-font-size: 15px;
+  }
+
+  .info-window {
+    width: 330px;
+    height: 375px;
+  }
+
+  .window-title {
+    margin-top: 35px;
+    font-size: 15px;
+  }
+
+  .window-ton-main, .window-ton-description, .window-rub {
+    font-size: 13px;
+  }
+
+  .switch-language {
+    top: 77%;
+  }
+
+}
+
+
+@media (max-height: 560px){
+
+  .currency {
+    margin-top: 15px; 
+  }
+
+  .base-convert-window {
+    top: 53%;
+    width: 350px;
+    height: 200px;
+  }
+
+  .input-currency, .input-currency-blur, .output-currency, .output-currency-blur {
+    font-size: 35px;
+    --original-font-size: 35px;
+    --final-font-size: 0px;
+  }
+
+  .input-wrapper {
+    width: 80%;
+    height: 55px;
+    
+  }
+  .output-wrapper {
+    width: 80%;
+    height: 55px;
+    
+  }
+  .arrow {
+    width: 30px;
+    height: 35px;
+  }
+
+
+}
+
 @media (max-width: 380px) {
   .currency {
     margin-top: 85px; 
@@ -1054,7 +1142,6 @@ input:checked + .move::before {
     top: 80.2%;
   }
 }
-
 
 
 .swap-btn::before {
