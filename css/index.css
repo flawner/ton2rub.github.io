@@ -1143,6 +1143,57 @@ input:checked + .move::before {
   }
 }
 
+@media (max-width: 368px) {
+  .currency {
+    margin-top: 100px; 
+  }
+
+  .title, .title-blur {
+    font-size: 32px;
+  }
+  .swap-btn, .btn-blur {
+    font-size: 18px;
+  }
+
+  .title-blur {
+    top: 42%;
+  }
+}
+
+@media (max-width: 380px) and (max-height: 560px){
+  .currency {
+    margin-top: 30px; 
+  }
+
+  .base-convert-window {
+    top: 53%;
+    width: 310px;
+    height: 180px;
+  }
+
+
+  .input-currency, .input-currency-blur, .output-currency, .output-currency-blur {
+    font-size: 25px;
+    --original-font-size: 25px;
+    --final-font-size: 0px;
+  }
+
+  .input-wrapper {
+    width: 80%;
+    height: 45px;
+    
+  }
+  .output-wrapper {
+    width: 80%;
+    height: 45px;
+    
+  }
+  .arrow {
+    width: 30px;
+    height: 35px;
+  }
+}
+
 
 .swap-btn::before {
   transition: all calc(var(--transition-duration) * var(--animations-enabled)) var(--transition-timing);
